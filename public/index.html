@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .custom-underline {
+        position: relative;
+        display: inline-block;
+      }
+      .custom-underline::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(60, 93, 244);
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      .custom-underline:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      /* ---------------------------------------- */
+      .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        background-color: #4eadba; /* Light blue background */
+      }
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer; /* Change cursor to pointer on hover */
+      }
+      .card-details {
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.3s, opacity 0.3s;
+      }
+      .card:hover .card-details {
+        max-height: 100px;
+        opacity: 1;
+      }
+      /* ------------------------------------------------------- */
+      .slider-item {
+        transition: transform 0.3s ease-in-out;
+      }
+      .slider-item:hover {
+        transform: scale(1.05);
+        background-color: #f0f4f8; /* Change this color as desired */
+      }
+      .scroll-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+      }
+      .scroll-container::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for webkit browsers */
+      }
+    </style>
+
+    <title>Mehwish Zahoor</title>
+  </head>
+  <body>
+    <header class="text-gray-600 bg-blue-200 body-font" id="customHeader">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+            ></path>
+          </svg>
+          <span class="ml-3 text-xl">PortFolio</span>
+        </a>
+        <nav
+          class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center"
+        >
+          <a
+            href="#customHero"
+            class="mr-5 hover:text-gray-900 custom-underline"
+            >Home</a
+          >
+          <a
+            href="#customAbout"
+            class="mr-5 hover:text-gray-900 custom-underline"
+            >About</a
+          >
+          <a
+            href="#customProject"
+            class="mr-5 hover:text-gray-900 custom-underline"
+            >Projects</a
+          >
+          <a
+            href="#customSkills"
+            class="mr-5 hover:text-gray-900 custom-underline"
+            >Skills</a
+          >
+          <a href="#contactus" class="mr-5 hover:text-gray-900 custom-underline"
+            >Contact</a
+          >
+        </nav>
+
+        <a href="#customSkills">
+          <button
+            class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+          >
+            Skills
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-4 h-4 ml-1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </a>
+      </div>
+    </header>
+    <!-- ----------------------------------------------------------------------- -->
+
+    <!-- Hero Section -->
+    <section class="text-gray-600 body-font" id="customHero">
+      <div
+        class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center"
+      >
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+          <img
+            class="object-cover object-center rounded"
+            alt="hero"
+            src="/mehwish.png"
+          />
+        </div>
+        <div
+          class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center"
+        >
+          <h1
+            class="title-font sm:text-4xl text-3xl mb-4 font-medium text-blue-300"
+          >
+            <span class="text-blue-600">Mehwish Zahoor</span><br />
+            <br class="hidden lg:inline-block text-blue-400" />Full Stack
+            Developer & Data Entry Specialist
+          </h1>
+          <p class="mb-8 leading-relaxed">
+            "Welcome to my portfolio! I'm Mehwish Zahoor, a passionate MERN
+            stack developer with experience in creating dynamic and responsive
+            web applications. My journey in web development has been driven by a
+            love for problem-solving and innovation."
+          </p>
+          <div class="flex justify-center">
+            <a href="#contactus"
+              ><button
+                class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              >
+                Contact
+              </button></a
+            >
+            <a href="#customProject"
+              ><button
+                class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"
+              >
+                Projects
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ----------------------------------------------------------------------- -->
+    <hr class="border-blue-500" />
+    <!-- About -->
+    <section class="text-gray-600 body-font" id="customAbout">
+      <div class="container px-5 py-24 mx-auto">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-12">
+          About Me
+        </h1>
+        <div class="flex flex-wrap -m-4">
+          <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+            <div class="h-full text-center">
+              <img
+                alt="testimonial"
+                class="w-60 h-40 mb-8 object-cover object-center inline-block border-2 border-gray-200 bg-gray-100"
+                src="/mern.png"
+              />
+              <p class="leading-relaxed">
+                As a MERN Stack Developer, I specialize in creating robust,
+                scalable, and dynamic web applications using MongoDB,
+                Express.js, React, and Node.js. My experience in developing
+                end-to-end applications enables me to build efficient and
+                user-friendly interfaces while ensuring seamless backend
+                operations. With a strong foundation in JavaScript and a passion
+                for problem-solving, I continuously strive to enhance my skills
+                and stay updated with the latest technologies to deliver
+                high-quality solutions.
+              </p>
+              <span
+                class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"
+              ></span>
+              <h2
+                class="text-gray-900 font-medium title-font tracking-wider text-sm"
+              >
+                MERN Stack Developer
+              </h2>
+              <p class="text-gray-500">
+                Crafting Dynamic and Responsive Web Applications
+              </p>
+            </div>
+          </div>
+          <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+            <div class="h-full text-center">
+              <img
+                alt="testimonial"
+                class="w-60 h-40 mb-8 object-cover object-center inline-block border-2 border-gray-200 bg-gray-100"
+                src="/dataEntry.jpeg"
+              />
+              <p class="leading-relaxed">
+                As a Data Entry Specialist, I excel in managing and entering
+                data with a high degree of accuracy and efficiency. My attention
+                to detail and organizational skills enable me to handle large
+                volumes of data while maintaining its integrity. Whether it's
+                inputting data into databases, updating records, or verifying
+                information, I ensure that every task is completed meticulously.
+                My commitment to precision and reliability makes me a valuable
+                asset in any data management project.
+              </p>
+              <span
+                class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"
+              ></span>
+              <h2
+                class="text-gray-900 font-medium title-font tracking-wider text-sm"
+              >
+                Data Entry Specialist
+              </h2>
+              <p class="text-gray-500">
+                Ensuring Accuracy and Efficiency in Data Management
+              </p>
+            </div>
+          </div>
+          <div class="lg:w-1/3 lg:mb-0 p-4">
+            <div class="h-full text-center">
+              <img
+                alt="testimonial"
+                class="w-60 h-40 mb-8 object-cover object-center inline-block border-2 border-gray-200 bg-gray-100"
+                src="/communication.png"
+              />
+              <p class="leading-relaxed">
+                Effective communication is a vital skill that I bring to every
+                professional setting. Whether collaborating with team members or
+                interacting with clients, my ability to convey information
+                clearly and persuasively ensures smooth and productive
+                interactions. I believe that good communication fosters
+                teamwork, enhances problem-solving, and drives project success.
+                By listening actively and articulating thoughts coherently, I
+                contribute to a positive and collaborative work environment.
+              </p>
+              <span
+                class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"
+              ></span>
+              <h2
+                class="text-gray-900 font-medium title-font tracking-wider text-sm"
+              >
+                Communication Skills
+              </h2>
+              <p class="text-gray-500">
+                Bridging Gaps through Effective Communication
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="border-blue-500" />
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- Projects -->
+    <div class="container mx-auto py-12" id="customProject">
+      <h1 class="text-4xl font-bold text-center text-blue-600 mb-12">
+        My Projects
+      </h1>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8"
+      >
+        <!-- Card 1 -->
+        <div class="card text-yellow-900 rounded-lg overflow-hidden shadow-lg">
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">Typing Speed Application</h2>
+            <p class="text-sm">
+              Test and improve your typing speed with real-time feedback.
+            </p>
+          </div>
+          <div class="card-details p-6 bg-lightblue-500">
+            <p class="text-sm">
+              This application helps users to test and enhance their typing
+              speed by providing real-time feedback and accuracy metrics. Built
+              with HTML, CSS, and JavaScript.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card text-yellow-900 rounded-lg overflow-hidden shadow-lg">
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">Random Quote Generator</h2>
+            <p class="text-sm">
+              Get inspired with random quotes at the click of a button.
+            </p>
+          </div>
+          <div class="card-details p-6 bg-lightblue-500">
+            <p class="text-sm">
+              A simple application that generates random quotes from a
+              predefined list. Built with HTML, CSS, and JavaScript, it offers a
+              seamless and interactive experience.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card text-yellow-900 rounded-lg overflow-hidden shadow-lg">
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">Educational Website</h2>
+            <p class="text-sm">
+              A platform to enhance learning with interactive content.
+            </p>
+          </div>
+          <div class="card-details p-6 bg-lightblue-500">
+            <p class="text-sm">
+              An educational website designed to offer interactive learning
+              experiences. Features include quizzes, educational articles, and
+              interactive tutorials.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card text-yellow-900 rounded-lg overflow-hidden shadow-lg">
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">Travel Website</h2>
+            <p class="text-sm">
+              Explore travel destinations and plan your next adventure.
+            </p>
+          </div>
+          <div class="card-details p-6 bg-lightblue-500">
+            <p class="text-sm">
+              A travel website offering detailed information on various
+              destinations, travel tips, and booking options. Built to inspire
+              and assist travelers in planning their trips.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card text-yellow-900 rounded-lg overflow-hidden shadow-lg">
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">Tic Tac Toe Game</h2>
+            <p class="text-sm">Play the classic game of Tic Tac Toe online.</p>
+          </div>
+          <div class="card-details p-6 bg-lightblue-500">
+            <p class="text-sm">
+              A simple implementation of the Tic Tac Toe game with interactive
+              gameplay and user-friendly design. Built using HTML, CSS, and
+              JavaScript.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card text-yellow-900 rounded-lg overflow-hidden shadow-lg">
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">Random Color Generator</h2>
+            <p class="text-sm">
+              Generate random colors and refresh your palette.
+            </p>
+          </div>
+          <div class="card-details p-6 bg-lightblue-500">
+            <p class="text-sm">
+              A tool for generating random colors with a click. Allows users to
+              explore different color combinations and experiment with color
+              palettes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card text-yellow-900 rounded-lg overflow-hidden shadow-lg">
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">Dictionary App</h2>
+            <p class="text-sm">
+              Find definitions and meanings of words quickly.
+            </p>
+          </div>
+          <div class="card-details p-6 bg-lightblue-500">
+            <p class="text-sm">
+              An application providing definitions and meanings of words using a
+              simple interface. Features include search functionality and a
+              clean design.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card text-yellow-900 rounded-lg overflow-hidden shadow-lg">
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">BMI Calculator</h2>
+            <p class="text-sm">
+              Calculate your Body Mass Index and assess your health.
+            </p>
+          </div>
+          <div class="card-details p-6 bg-lightblue-500">
+            <p class="text-sm">
+              A BMI calculator that helps users to calculate and interpret their
+              Body Mass Index. Provides useful insights into health and fitness.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card text-yellow-900 rounded-lg overflow-hidden shadow-lg">
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">COVID-19 Tracker</h2>
+            <p class="text-sm">Track COVID-19 cases and updates globally.</p>
+          </div>
+          <div class="card-details p-6 bg-lightblue-500">
+            <p class="text-sm">
+              A tracker for monitoring COVID-19 cases and updates worldwide.
+              Features include data visualization and real-time updates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="border-blue-500 mb-8" />
+    <!-- ---------------------------------------------------------- -->
+    <!-- Gallery Images -->
+    <div class="container mx-auto my-10">
+      <h1 class="text-4xl font-bold text-center text-blue-600 mb-12">
+        Gallery
+      </h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Educational Website -->
+        <div class="relative group">
+          <img
+            src="/education.jpeg"
+            alt="Educational Website"
+            class="w-full h-60 object-cover rounded-lg shadow-lg"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <span class="text-white text-lg">Educational Website</span>
+          </div>
+        </div>
+        <!-- Travel Website -->
+        <div class="relative group">
+          <img
+            src="/travel.jpg"
+            alt="Travel Website"
+            class="w-full h-60 object-cover rounded-lg shadow-lg"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <span class="text-white text-lg">Travel Website</span>
+          </div>
+        </div>
+        <!-- Tic Tac Toe Game -->
+        <div class="relative group">
+          <img
+            src="/ticTacToe.jpg"
+            alt="Tic Tac Toe Game"
+            class="w-full h-60 object-cover rounded-lg shadow-lg"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <span class="text-white text-lg">Tic Tac Toe Game</span>
+          </div>
+        </div>
+        <!-- Typing Speed Application -->
+        <div class="relative group">
+          <img
+            src="typingSpeed.png"
+            alt="Typing Speed Application"
+            class="w-full h-60 object-cover rounded-lg shadow-lg"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <span class="text-white text-lg">Typing Speed Application</span>
+          </div>
+        </div>
+        <!-- Random Color Generator -->
+        <div class="relative group">
+          <img
+            src="randomColor.jpg"
+            alt="Random Color Generator"
+            class="w-full h-60 object-cover rounded-lg shadow-lg"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <span class="text-white text-lg">Random Color Generator</span>
+          </div>
+        </div>
+        <!-- Random Quote Generator -->
+        <div class="relative group">
+          <img
+            src="randomQuote.jpeg"
+            alt="Random Quote Generator"
+            class="w-full h-60 object-cover rounded-lg shadow-lg"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <span class="text-white text-lg">Random Quote Generator</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-blue-500 mb-8" />
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- Skills Section -->
+    <div class="relative w-full max-w-4xl mx-auto" id="customSkills">
+      <h1 class="text-4xl font-bold text-center text-blue-600 mb-12">Skills</h1>
+      <!-- Carousel Wrapper -->
+      <div class="relative">
+        <div class="scroll-container space-x-4">
+          <!-- Slider Items -->
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              HTML
+            </h3>
+            <p class="text-gray-600">
+              Proficient in structuring web content using HTML, ensuring
+              well-organized and semantic web pages.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              CSS
+            </h3>
+            <p class="text-gray-600">
+              Experienced in styling and laying out web pages with CSS,
+              including responsive design principles and custom styling.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              Tailwind CSS
+            </h3>
+            <p class="text-gray-600">
+              Skilled in using Tailwind CSS for utility-first design, creating
+              custom and responsive layouts efficiently.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              Bootstrap
+            </h3>
+            <p class="text-gray-600">
+              Knowledgeable in utilizing Bootstrap to develop responsive,
+              mobile-first websites with pre-designed components and a grid
+              system.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              JavaScript
+            </h3>
+            <p class="text-gray-600">
+              Competent in JavaScript for creating interactive and dynamic web
+              applications, including form validation and asynchronous
+              operations.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              Canva
+            </h3>
+            <p class="text-gray-600">
+              Adept at using Canva for designing visually appealing graphics,
+              presentations, and marketing materials with ease.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              Git and GitHub
+            </h3>
+            <p class="text-gray-600">
+              Proficient in version control with Git and collaborative
+              development using GitHub, including code management and repository
+              hosting.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              Python Basic Knowledge
+            </h3>
+            <p class="text-gray-600">
+              Understand fundamental Python programming concepts, including
+              variables, data types, control structures, and functions.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              Data Entry Specialist
+            </h3>
+            <p class="text-gray-600">
+              Experienced in accurate and efficient data entry, managing
+              spreadsheets, databases, and data-related tasks.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              React JS
+            </h3>
+            <p class="text-gray-600">
+              Experienced in building user interfaces with React JS, creating
+              reusable components and managing application state.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              MongoDB
+            </h3>
+            <p class="text-gray-600">
+              Skilled in using MongoDB for document-oriented database
+              management, handling unstructured and semi-structured data.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              Node JS
+            </h3>
+            <p class="text-gray-600">
+              Proficient in server-side development with Node.js, creating
+              scalable and high-performance web applications with non-blocking
+              I/O.
+            </p>
+          </div>
+          <div
+            class="slider-item bg-blue-100 shadow-lg rounded-lg p-4 cursor-pointer flex-shrink-0 w-64"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 text-center">
+              Express JS
+            </h3>
+            <p class="text-gray-600">
+              Experienced with Express.js for building robust server-side
+              applications, handling HTTP requests, and developing APIs.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <button
+        class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-300 text-white p-2 rounded-full shadow-lg hover:bg-blue-400 focus:outline-none mt-8"
+        id="prev-btn"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          ></path>
+        </svg>
+      </button>
+      <button
+        class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-300 text-white p-2 rounded-full shadow-lg hover:bg-blue-400 focus:outline-none mt-8"
+        id="next-btn"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <hr class="border-blue-500 mt-8 mb-8" />
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- Contact US -->
+    <section class="text-gray-600 body-font relative" id="contactus">
+      <h1 class="text-4xl font-bold text-center text-blue-600 mb-12">
+        Contact Us
+      </h1>
+      <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+        <div
+          class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative"
+        >
+          <iframe
+            width="100%"
+            height="100%"
+            class="absolute inset-0"
+            frameborder="0"
+            title="map"
+            marginheight="0"
+            marginwidth="0"
+            scrolling="no"
+            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Faisalabad+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+            style="filter: grayscale(1) contrast(1.2) opacity(0.6)"
+          ></iframe>
+          <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+            <div class="lg:w-1/2 px-6">
+              <h2
+                class="title-font font-semibold text-gray-900 tracking-widest text-xs"
+              >
+                ADDRESS
+              </h2>
+              <p class="mt-1">Faisalabad, Pakistan</p>
+            </div>
+            <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+              <h2
+                class="title-font font-semibold text-gray-900 tracking-widest text-xs"
+              >
+                EMAIL
+              </h2>
+              <a
+                class="text-indigo-500 leading-relaxed"
+                href="mailto:mehwishzahoorcs@gmail.com"
+                >mehwishzahoorcs@gmail.com</a
+              >
+              <h2
+                class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4"
+              >
+                PHONE
+              </h2>
+              <p class="leading-relaxed">0308-4932287</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
+        >
+          <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">
+            Feedback
+          </h2>
+          <p class="leading-relaxed mb-5 text-gray-600">
+            We value your feedback. Please share your thoughts and questions
+            with us.
+          </p>
+          <!-- id="feedback-form" -->
+          <form action="/submit" method="post" id="contact-form">
+            <div class="relative mb-4">
+              <label for="name" class="leading-7 text-sm text-gray-600"
+                >Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            </div>
+            <div class="relative mb-4">
+              <label for="email" class="leading-7 text-sm text-gray-600"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            </div>
+            <div class="relative mb-4">
+              <label for="message" class="leading-7 text-sm text-gray-600"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              id="submit"
+              class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              onclick="handleSubmit()"
+            >
+              Submit
+            </button>
+          </form>
+          <p class="text-xs text-gray-500 mt-3 text-center">
+            To Contact Us, Fill up this form.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- Footer -->
+    <footer class="text-gray-600 body-font bg-blue-200">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap md:text-left text-center">
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4 mb-6 md:mb-0">
+            <h2
+              class="title-font font-semibold text-gray-900 tracking-widest text-sm mb-3"
+            >
+              CATEGORIES
+            </h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-800"
+                  >Web Development</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-800">Design</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-800"
+                  >Marketing</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-800"
+                  >Consulting</a
+                >
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4 mb-6 md:mb-0">
+            <h2
+              class="title-font font-semibold text-gray-900 tracking-widest text-sm mb-3"
+            >
+              QUICK LINKS
+            </h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a href="#customHero" class="text-gray-600 hover:text-gray-800"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#customAbout" class="text-gray-600 hover:text-gray-800"
+                  >About Me</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#customProject"
+                  class="text-gray-600 hover:text-gray-800"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#customSkills"
+                  class="text-gray-600 hover:text-gray-800"
+                  >Skills</a
+                >
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4 mb-6 md:mb-0">
+            <h2
+              class="title-font font-semibold text-gray-900 tracking-widest text-sm mb-3"
+            >
+              SUPPORT
+            </h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-800">FAQ</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-800"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-800"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-gray-800"
+                  >Terms of Service</a
+                >
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2
+              class="title-font font-semibold text-gray-900 tracking-widest text-sm mb-3"
+            >
+              SUBSCRIBE
+            </h2>
+            <div
+              class="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start"
+            >
+              <div class="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+                <label
+                  for="footer-email"
+                  class="leading-7 text-sm text-gray-600"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="footer-email"
+                  name="footer-email"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-white focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <button
+                type="button"
+                class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                onclick="subscribe()"
+              >
+                Subscribe
+              </button>
+            </div>
+            <p class="text-gray-500 text-sm mt-2 md:text-left text-center">
+              Stay updated with our latest news and offers.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-200">
+        <div
+          class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              ></path>
+            </svg>
+            <span class="ml-3 text-xl">Mehwish</span>
+          </a>
+          <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
+            © 2024 Mehwish —
+            <a
+              href="https://twitter.com/yourbrand"
+              rel="noopener noreferrer"
+              class="text-gray-600 ml-1"
+              target="_blank"
+              >@meshi_style</a
+            >
+          </p>
+          <span
+            class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
+          >
+            <a href="#" class="text-gray-500">
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                ></path>
+              </svg>
+            </a>
+            <a href="#" class="ml-3 text-gray-500">
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                ></path>
+              </svg>
+            </a>
+            <a href="#" class="ml-3 text-gray-500">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path
+                  d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+                ></path>
+              </svg>
+            </a>
+            <a href="#" class="ml-3 text-gray-500">
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="0"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <!-- --------------------------------------------- -->
+
+    <script>
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+      const container = document.querySelector(".scroll-container");
+
+      nextBtn.addEventListener("click", () => {
+        container.scrollBy({ left: 200, behavior: "smooth" });
+      });
+
+      prevBtn.addEventListener("click", () => {
+        container.scrollBy({ left: -200, behavior: "smooth" });
+      });
+
+      // ---------------------------------------------
+      function handleSubmit() {
+        alert("Your information has been submitted");
+        document.getElementById("feedback-form").reset();
+      }
+      // -----------------------------------------
+      function subscribe() {
+        alert("Thank you for subscribing!");
+        document.getElementById("footer-email").value = "";
+      }
+    </script>
+  </body>
+</html>

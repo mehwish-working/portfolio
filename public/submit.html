@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Message</title>
+    <style>
+      body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #b3dbfe;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.message-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%;
+}
+
+.animated-message {
+    font-size: 1.5em;
+    color: #130d80;
+    animation: fadeIn 2s ease-in-out, slideUp 1s 2s ease-in-out forwards;
+    word-wrap: break-word;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 600px) {
+    .animated-message {
+        font-size: 2em;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="message-container" id="messageContainer">
+        <p class="animated-message">Welcome! Your form has been successfully submitted.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+
+
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "init": "^0.1.2",
+    "mongoose": "^8.4.4",
+    "nodemon": "^3.1.4"
+  },
+  "name": "nodemon",
+  "version": "1.0.0",
+  "description": "mehwish working",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "test my file",
+    "start": "node index.js",
+    "dev":"nodemon index.js"
+  },
+  "author": "mehwish zahoor",
+  "license": "ISC"
+}
+
